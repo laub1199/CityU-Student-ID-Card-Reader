@@ -1,0 +1,15 @@
+{
+  "name": "cityu-student-id-card-reader",
+  "version": "1.0.0",
+  "description": "CityU student ID card reader for extracting id card detail",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "opencv",
+    "cardreader"
+  ],
+  "author": "Sennett Lau",
+  "license": "ISC"
+}
