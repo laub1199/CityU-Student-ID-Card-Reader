@@ -1,16 +1,18 @@
 const tesseract = require("node-tesseract-ocr")
 
-const config = {
-    lang: "eng",
-    oem: 1,
-    psm: 3,
+function getDataFromAims (imgPath) {
+    const config = {
+        lang: "eng",
+        oem: 1,
+        psm: 3,
+    }
+    tesseract.recognize(imgPath, config)
+        .then((text) => {
+            console.log("Result:", text)
+        })
+        .catch((error) => {
+            console.log(error.message)
+        })
 }
 
-tesseract
-    .recognize("./test/3.png", config)
-    .then((text) => {
-        console.log("Result:", text)
-    })
-    .catch((error) => {
-        console.log(error.message)
-    })
+getDataFromAims('./test-image/aims/tmchan2.png')
