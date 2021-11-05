@@ -55,11 +55,4 @@ async function getDataFromAims (imgPath) {
         })
 }
 
-(async () => {
-    const result = await getDataFromAims('./test-image/aims/tmchan2.png')
-    console.log('=====================================================')
-    console.log(result)
-    console.log('=====================================================')
-})()
-
 module.exports = { getDataFromAims }
