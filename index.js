@@ -1,19 +1,5 @@
 const tesseract = require("node-tesseract-ocr")
-
-//helper functions
-
-function keyCheck(str, arr) {
-    let index = 1
-    for (const s of arr) {
-        if (str.includes(s)) {
-            return index
-        }
-        index++
-    }
-    return 0
-}
-
-//module functions
+const keyCheck = require('./utils/keyCheck')
 
 async function getDataFromAims (imgPath) {
     const config = {
@@ -75,3 +61,5 @@ async function getDataFromAims (imgPath) {
     console.log(result)
     console.log('=====================================================')
 })()
+
+module.exports = { getDataFromAims }
