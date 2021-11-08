@@ -1,13 +1,18 @@
 const tesseract = require("node-tesseract-ocr")
 const keyCheck = require('./utils/keyCheck')
 
-async function getDataFromAims (imgPath) {
+async function getDataFromAims (image, isPath = false) {
     const config = {
         lang: "eng",
         oem: 1,
         psm: 3,
     }
-    return await tesseract.recognize(imgPath, config)
+
+    if (!isPath && typeof image === 'string') {
+        image = Buffer.from(image, "base64")
+    }
+
+    return await tesseract.recognize(image, config)
         .then((text) => {
             const lines = text.split('\n')
             const result = {
